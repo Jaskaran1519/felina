@@ -10,6 +10,13 @@
   }
 }
 
+.scrollbar-hide {
+  /* Styles to hide the scrollbar */
+  overflow-x: scroll; /* Keep scrolling functionality */
+  scrollbar-width: none; /* Remove default scrollbar */
+  -ms-overflow-style: none; /* For Internet Explorer/Edge */
+}
+
 .HeartIcon::before {
   content: "";
   position: absolute;

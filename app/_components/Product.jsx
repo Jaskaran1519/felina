@@ -6,11 +6,14 @@ import { database } from "../firebaseConfig";
 import { HeartIcon, ShoppingCartIcon } from "lucide-react";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
+import CategoryFilter from "./CategoryFilter";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   useEffect(() => {
     const productRef = ref(database, "products");
@@ -24,6 +27,7 @@ const Product = () => {
             })
           );
           setProducts(productsArray);
+          setFilteredProducts(productsArray); // Set initial filtered products
         } else {
           console.log("No data available");
         }
@@ -36,11 +40,25 @@ const Product = () => {
       });
   }, []);
 
+  useEffect(() => {
+    if (selectedCategory === "all") {
+      setFilteredProducts(products);
+    } else {
+      const filtered = products.filter(
+        (product) => product.tag === selectedCategory
+      );
+      setFilteredProducts(filtered);
+    }
+  }, [selectedCategory, products]);
+
   return (
-    <div className="w-[80%] mx-auto h-auto">
+    <div className="w-[80%] mx-auto h-auto min-h-screen">
       <h1 className="text-[2.3rem] font-semibold text-herofont">
         Our Collection
       </h1>
+      <div className="my-5">
+        <CategoryFilter onCategorySelect={setSelectedCategory} />
+      </div>
       <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {loading
           ? Array(6)
@@ -68,7 +86,7 @@ const Product = () => {
                   </div>
                 </div>
               ))
-          : products.map((product) => (
+          : filteredProducts.map((product) => (
               <div key={product.id}>
                 <Link href={`/product/${product.id}`}>
                   <div className="border-primary relative border-[2px] p-2 w-full h-[40vh] mx-auto md:w-[35vw] lg:w-[25vw] xl:w-[20vw] md:h-[35vh] lg:h-[25vh] xl:h-[45vh] rounded-lg my-3 hover:shadow-xl duration-200 hover:cursor-pointer">
@@ -78,7 +96,7 @@ const Product = () => {
                         width={300}
                         height={200}
                         className="w-full bg-cover rounded-md"
-                        alt="/"
+                        alt={product.name}
                       />
                     </div>
                     <div className="mt-2">
@@ -97,7 +115,7 @@ const Product = () => {
                             <ShoppingCartIcon />
                           </button>
                           <button className="rounded-full scale-100 hover:scale-110 hover:text-red-500 duration-200">
-                            <HeartIcon className=" " />
+                            <HeartIcon />
                           </button>
                         </div>
                       </div>

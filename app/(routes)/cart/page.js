@@ -34,7 +34,7 @@ const page = () => {
   return (
     <div className="w-[90%] mx-auto">
       <div className="xl:flex justify-between  ">
-        <div className="w-full xl:w-[65%] h-auto mx-auto xl:min-h-screen mb-5">
+        <div className="w-full xl:w-[65%] h-auto mx-auto xl:min-h-screen mb-5 min-h-[50vh]">
           <div className="flex justify-between mr-6 items-center">
             <h1 className="text-[2rem] text-herofont ">Shopping Cart</h1>
             <p className="text-[1.2rem]">Items: {cartItems.length}</p>
@@ -120,14 +120,14 @@ const page = () => {
             </div>
           )}
           <Link href="/product">
-            <div className="flex gap-3 float-right rounded-md  py-2 px-1 cursor-pointer  hover:bg-gray-100">
+            <div className="flex gap-3 float-right rounded-md  py-2 px-1 cursor-pointer  hover:bg-gray-100 ">
               {" "}
               <ArrowLeft />
               <p className="text-gray-600 font-semibold">Back to Shop</p>
             </div>
           </Link>
         </div>
-        <div className="w-full md:w-[70%] mx-auto xl:w-[30%] h-auto bg-gray-100 z-0">
+        <div className="w-full md:w-[70%] mx-auto xl:w-[30%] h-auto bg-gray-100 z-0 ">
           <div className="w-[80%] mt-[5vh] mx-auto  z-50">
             <h1 className="text-[2rem] border-b-2 border-gray-800 font-semibold p-4">
               Summary
