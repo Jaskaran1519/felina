@@ -9,6 +9,10 @@ import Link from "next/link";
 const page = () => {
   const { wishItems, removeFromWish } = useContext(Context);
 
+  useEffect(() => {
+    console.log(wishItems);
+  });
+
   return (
     <div className="w-[90%] mx-auto">
       <div className="flex justify-between flex-wrap h-auto xl:min-h-screen">
@@ -29,11 +33,13 @@ const page = () => {
                     height={80}
                     alt="/"
                   />
-                  <div className="w-[20%] mx-auto flex-col justify-center items-center">
-                    <p className="text-[1.2rem] font-semibold text-gray-600">
-                      {item.tag}
-                    </p>
-                    <p className="text-[0.9rem] line-clamp-2">{item.name}</p>
+                  <div className="w-[50%] mx-auto flex-col justify-center items-center">
+                    <Link href={`/product/${item.Id}`}>
+                      <p className="text-[1.2rem] font-semibold text-gray-600">
+                        {item.name}
+                      </p>
+                    </Link>
+                    <p className="text-[0.9rem] line-clamp-2">{item.tag}</p>
                   </div>
 
                   <div className="mx-auto flex justify-center items-center">

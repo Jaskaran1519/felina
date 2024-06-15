@@ -3,7 +3,7 @@ import Product from "../../_components/Product";
 
 const page = () => {
   return (
-    <div className="w-full h-auto">
+    <div className="">
       <Product />
     </div>
   );

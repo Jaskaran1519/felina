@@ -52,13 +52,11 @@ const Product = () => {
   }, [selectedCategory, products]);
 
   return (
-    <div className="w-[80%] mx-auto h-auto min-h-screen">
+    <div className="w-[80%] mx-auto  min-h-screen">
       <h1 className="text-[2.3rem] font-semibold text-herofont">
         Our Collection
       </h1>
-      <div className="my-5">
-        <CategoryFilter onCategorySelect={setSelectedCategory} />
-      </div>
+
       <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {loading
           ? Array(6)
@@ -97,6 +95,7 @@ const Product = () => {
                         height={200}
                         className="w-full bg-cover rounded-md"
                         alt={product.name}
+                        priority={true} // {false} | {true}
                       />
                     </div>
                     <div className="mt-2">

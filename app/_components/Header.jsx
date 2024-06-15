@@ -4,11 +4,18 @@ import { Context } from "../../context/page";
 import Link from "next/link";
 import React, { useContext } from "react";
 const Header = () => {
-  const { cartItems } = useContext(Context);
+  const { cartItems, wishItems } = useContext(Context);
   return (
     <div className="flex gap-[3vw] items-center text-[3vh] mt-4 ">
       <Link href="/wishlist">
-        <Heart />
+        <div className="relative">
+          <Heart />
+          {wishItems && wishItems.length > 0 ? (
+            <span className="w-4 h-4 bg-orange-800 text-[0.5rem] rounded-full absolute -top-2 -right-2 text-white flex justify-center items-center -z-10">
+              {wishItems.length}
+            </span>
+          ) : null}
+        </div>
       </Link>
       <Link href="/cart">
         <div className="relative">

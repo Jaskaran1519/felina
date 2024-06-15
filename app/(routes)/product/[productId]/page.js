@@ -50,9 +50,10 @@ const page = ({ params }) => {
           <>
             <div className="w-full h-[40vh] lg:w-[45vw] xl:h-[70vh] relative">
               <Image
-                className="w-full object-cover rounded-md"
+                className="w-full object-cover rounded-md cursor-pointer"
                 src={product.image}
                 layout="fill"
+                priority
                 alt=".."
               />
             </div>

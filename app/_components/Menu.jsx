@@ -10,14 +10,14 @@ const Menu = () => {
     <div className="relative">
       <div
         className={`absolute top-0 left-0 z-50 ${
-          toggle ? "w-[full] h-screen" : ""
+          toggle ? "w-full h-screen" : ""
         }`}
       />
       <div
         className={`absolute top-0 left-0 z-50 ${
           toggle
-            ? "w-full overflow-hidden h-screen bg-orange-200 duration-200 "
-            : "w-[30vw] h-screen duration-200 "
+            ? "w-[40vw] overflow-hidden h-screen bg-orange-200 duration-200 "
+            : "w-0 h-screen duration-200 z-50"
         }`}
       >
         {!toggle ? (
