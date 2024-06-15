@@ -1,36 +1,4 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer utilities {
-  .background {
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
-
-.scrollbar-hide {
-  /* Styles to hide the scrollbar */
-  overflow-x: scroll; /* Keep scrolling functionality */
-  scrollbar-width: none; /* Remove default scrollbar */
-  -ms-overflow-style: none; /* For Internet Explorer/Edge */
-}
-
-.HeartIcon::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Adjust clip-path for your specific heart icon */
-  clip-path: path(
-    M50 0 L79.3674 38.1464 C84.1758 43.008 87.3863 48.7396 88.8944 55.2524 L90
-      60 L50 100 L10 60 L11.1056 55.2524 C12.6141 48.7396 15.8242 43.008 20.6326
-      38.1464 L49.9999 0 Z
-  );
-  background-color: red;
-  /* Adjust z-index if needed for proper layering */
-  z-index: 1;
-}
+  @tailwind components;
+  @tailwind utilities;
+  

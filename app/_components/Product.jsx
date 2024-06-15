@@ -56,7 +56,7 @@ const Product = () => {
       <h1 className="text-[2.3rem] font-semibold text-herofont">
         Our Collection
       </h1>
-
+      <CategoryFilter onCategorySelect={setSelectedCategory} />
       <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {loading
           ? Array(6)
